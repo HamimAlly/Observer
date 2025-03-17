@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>BooleanInput</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: #363636;
+            }
+        </style>
+        <link rel="stylesheet" href="/src/index.min.css">
+
+    </head>
+
+    <body>
+        <script type="module">
+            import { BooleanInput } from '/src/index.js';
+
+            const checkbox = new BooleanInput();
+
+            const toggle = new BooleanInput({type: 'toggle'});
+
+            document.body.appendChild(checkbox.dom);
+            document.body.appendChild(toggle.dom);
+        </script>
+    </body>
+
+</html>

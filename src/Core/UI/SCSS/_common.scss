@@ -1,0 +1,56 @@
+/* Apply scrollbar styles globally */
+* {
+    /* Webkit-based browsers */
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bcg-darkest;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $text-darkest;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $text-active;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: $bcg-dark;
+    }
+
+    /* Standardized Properties */
+    @supports not selector(::-webkit-scrollbar) {
+        /* Firefox */
+        scrollbar-width: thin;
+        scrollbar-color: $text-darkest $bcg-darkest;
+    }
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+// flex container
+.flex {
+    flex-direction: column;
+
+    &:not(.hidden) {
+        display: flex;
+    }
+}
+
+// grid container
+.grid {
+    display: grid;
+}
+
+// scrollable element
+.scrollable {
+    // show scrollbars automatically
+    overflow: auto;
+}

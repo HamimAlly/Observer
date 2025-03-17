@@ -1,0 +1,17 @@
+export const CLASS_COLLAPSED = 'collapsed';
+export const CLASS_COLLAPSIBLE = 'collapsible';
+export const CLASS_DEFAULT_MOUSEDOWN = 'default-mousedown';
+export const CLASS_DISABLED = 'disabled';
+export const CLASS_ERROR = 'error';
+export const CLASS_FLASH = 'flash';
+export const CLASS_FLEX = 'flex';
+export const CLASS_FOCUS = 'focus';
+export const CLASS_FONT_REGULAR = 'font-regular';
+export const CLASS_FONT_BOLD = 'font-bold';
+export const CLASS_GRID = 'grid';
+export const CLASS_HIDDEN = 'hidden';
+export const CLASS_MULTIPLE_VALUES = 'multiple-values';
+export const CLASS_NOT_FLEXIBLE = 'not-flexible';
+export const CLASS_READONLY = 'readonly';
+export const CLASS_RESIZABLE = 'resizable';
+export const CLASS_SCROLLABLE = 'scrollable';

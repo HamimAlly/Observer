@@ -1,0 +1,29 @@
+// Element styling
+@keyframes flash-animation {
+    from { outline-color: $text-active; }
+    to { outline-color: rgba($text-active, 0); }
+}
+
+.element {
+    @extend .font-regular;
+
+    border: 0 solid $border-primary;
+
+    &.flash {
+        outline: 1px solid $text-active;
+        animation: flash-animation 200ms ease-in-out forwards;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    // remove dotted border on focused elements in firefox
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+
+.element.hidden {
+    display: none;
+}

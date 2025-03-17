@@ -1,0 +1,305 @@
+.select-input {
+    @extend .flex;
+
+    box-sizing: border-box;
+    margin: $element-margin;
+    border-radius: 2px;
+    min-width: 0; // this prevents the element from overflowing
+}
+
+.select-input-container-value {
+    @extend .flex;
+
+    background-color: $bcg-dark;
+    transition: box-shadow 100ms, opacity 100ms;
+}
+
+.select-input-shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: box-shadow 100ms;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.select-input-value {
+    &:not(.hidden) {
+        display: block;
+    }
+
+    margin: 0;
+    padding: 0 24px 0 ($element-margin + 2px);
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+
+    @extend .fixed-font;
+
+    transition: background-color 100ms, color 100ms;
+}
+
+.label.select-input-value {
+    margin: 0;
+}
+
+.select-input-textinput {
+    margin: 0;
+}
+
+.select-input-textinput:not(.disabled, .readonly, .error) {
+    &.focus,
+    &:hover {
+        box-shadow: none;
+    }
+}
+
+.label.select-input-icon {
+    position: absolute;
+    right: $element-margin;
+    color: $text-darkest;
+    pointer-events: none;
+    transition: color 100ms;
+    margin: 0;
+    height: 24px;
+    line-height: 24px;
+
+    &::after {
+        @extend .font-icon;
+
+        content: '\E159';
+        vertical-align: middle;
+    }
+}
+
+.select-input-has-disabled-value .container.select-input-list .label.selected {
+    &::after {
+        font-family: inherit;
+        content: 'fallback';
+        color: $text-primary;
+        font-size: 10px;
+        position: absolute;
+        right: 6px;
+    }
+}
+
+.label.select-input-disabled-value {
+    &::after {
+        @extend .font-icon;
+
+        content: '\e133' !important;
+        position: absolute;
+        right: 6px;
+    }
+}
+
+.select-input.open {
+    .select-input-shadow {
+        box-shadow: $element-shadow-hover;
+    }
+
+    .select-input-value {
+        color: $text-primary;
+        background-color: $bcg-darkest;
+    }
+
+    .select-input-icon::after {
+        color: $text-primary;
+        content: '\E157';
+    }
+}
+
+.container.select-input-list {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: $bcg-dark;
+
+    .label {
+        &:not(.hidden) {
+            display: block;
+        }
+
+        font-size: 12px;
+
+        @extend .fixed-font;
+
+        height: 22px;
+        line-height: 22px;
+        padding: 0 24px 0 $element-margin;
+        margin: 0;
+        transition: background-color 100ms, color 100ms;
+
+        &.selected {
+            color: $text-primary;
+
+            &::after {
+                @extend .font-icon;
+
+                content: '\E133';
+                color: $text-darkest;
+                position: absolute;
+                right: $element-margin;
+            }
+        }
+    }
+}
+
+.select-input-fit-height {
+    .select-input-list {
+        top: initial;
+        bottom: 100%;
+    }
+
+    .select-input-shadow {
+        top: initial;
+        bottom: 0;
+    }
+}
+
+.select-input-tags:not(.select-input-tags-empty) {
+    margin-top: 1px;
+    flex-wrap: wrap;
+}
+
+.select-input-tag {
+    background-color: $bcg-darker;
+    align-items: center;
+    border-radius: 2px;
+    border: 1px solid $border-primary;
+    margin-right: 2px;
+    margin-top: 2px;
+    min-width: 0; // prevents flex overflow
+    height: 18px;
+
+    > * {
+        margin: 0;
+        background-color: transparent;
+        border: 0;
+    }
+
+    > .label {
+        padding: 0 5px 0 8px;
+
+        @extend .fixed-font;
+    }
+
+    > .button {
+        padding: 0 5px;
+        height: 18px;
+        line-height: 18px;
+        flex-shrink: 0;
+
+        &:not(.disabled, .readonly):hover {
+            box-shadow: none;
+            color: $error-secondary;
+        }
+    }
+}
+
+.select-input-tag-not-everywhere {
+    > .label {
+        opacity: 0.5;
+
+        &::before {
+            content: '*';
+            margin-right: 5px;
+        }
+    }
+}
+
+.select-input:not(.disabled, .readonly) {
+    .select-input-container-value {
+        &:hover {
+            .select-input-shadow {
+                box-shadow: $element-shadow-hover;
+            }
+
+            .select-input-icon {
+                color: $text-dark;
+            }
+        }
+    }
+
+    &.focus {
+        .select-input-shadow {
+            box-shadow: $element-shadow-hover;
+        }
+
+        .select-input-icon {
+            color: $text-dark;
+        }
+    }
+
+    .select-input-value:hover {
+        color: $text-primary;
+        background-color: $bcg-darkest;
+        cursor: pointer;
+    }
+
+    .select-input-list {
+        > *:hover,
+        > .select-input-label-highlighted {
+            background-color: $bcg-darkest;
+            color: $text-primary;
+            cursor: pointer;
+        }
+    }
+}
+
+.select-input-create-new {
+    > .label {
+        padding-right: $element-margin;
+    }
+
+    > .label:last-child {
+        flex-shrink: 0;
+        margin-left: auto;
+
+        &::before {
+            content: '\E120';
+
+            @extend .font-icon;
+
+            margin-right: $element-margin;
+        }
+    }
+}
+
+.select-input.disabled {
+    opacity: $element-opacity-disabled;
+}
+
+.select-input {
+    .label.disabled {
+        opacity: $element-opacity-disabled;
+    }
+}
+
+.select-input.readonly {
+    .select-input-icon {
+        display: none;
+    }
+
+    &.select-input-multi {
+        .select-input-container-value {
+            display: none;
+        }
+
+        .select-input-tag > .button {
+            display: none;
+        }
+    }
+
+    &.select-input-allow-input:not(.select-input-multi) {
+        opacity: $element-opacity-readonly;
+
+        .select-input-textinput::after {
+            display: none;
+        }
+    }
+}
