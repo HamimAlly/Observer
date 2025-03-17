@@ -1,19 +1,13 @@
 # Overview
 
-The PlayCanvas Observer is a powerful JavaScript library for managing and observing changes to objects. It allows tracking modifications to nested properties, emitting events on changes, and maintaining state consistency. This is particularly useful in applications where state management and change tracking are critical, such as in data-driven interfaces or collaborative applications.
-
-## Installing
-
-To install the NPM package, do:
-
-    npm install @playcanvas/observer --save-dev
+The Observer is a powerful JavaScript library for managing and observing changes to objects. It allows tracking modifications to nested properties, emitting events on changes, and maintaining state consistency. This is particularly useful in applications where state management and change tracking are critical, such as in data-driven interfaces or collaborative applications.
 
 ## Usage
 
 ### Creating an Observer
 
 ```javascript
-import Observer from '@playcanvas/observer';
+import Observer from './observer/index.js';
 
 const data = {
     name: 'John',
@@ -38,20 +32,3 @@ observer.on('address.city:set', (newValue, oldValue) => {
 
 observer.set('address.city', 'San Francisco'); // Logs: City changed from New York to San Francisco
 ```
-
-## Building
-
-To generate a UMD and ESM build of the Observer library, run:
-
-    npm install
-    npm run build
-
-The UMD build is `dist/index.js`. The ESM build is `dist/index.mjs`.
-
-## API Docs
-
-To build the API reference manual, run:
-
-    npm run docs
-
-A pre-built API reference manual is hosted [here](https://api.playcanvas.com/modules/Observer.html).
