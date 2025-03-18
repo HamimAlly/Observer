@@ -1,4 +1,4 @@
-#  User Interface Component Library for the Web
+#  Sugar User Interface Component Library for the Web
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/playcanvas/pcui/blob/main/LICENSE)
 
@@ -6,5 +6,4 @@ This library enables the creation of reliable and visually pleasing user interfa
 
 ## Data Binding
 
-The PCUI library offers a data binding layer that can be used to synchronize data across multiple components. It offers two way binding to a given observer object, so updates made in a component are reflected in the observer's data and distributed out to all other subscribed components. A simple use case is shown below:
-
+The Sugar UI library offers a data binding layer that can be used to synchronize data across multiple components.
